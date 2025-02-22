@@ -20,15 +20,15 @@ steps:
     npm run build
   displayName: 'npm install and build'
 
-- script: 
+- script: |
     npm run lint
   displayName: 'Run Linter'
 
-- script: 
+- script: |
     npm test
   displayName: 'Run Unit Tests'
 
-- script: 
+- script: |
     mkdir -p $(Build.ArtifactStagingDirectory)
     cp -R ./* $(Build.ArtifactStagingDirectory)
   displayName: 'Copy files to Artifact Staging Directory'
@@ -38,4 +38,4 @@ steps:
     pathToPublish: '$Build.ArtifactStagingDirectory)'
     artifactName: 'drop'
     publishLocation: 'Container'
-  DisplayName: 'Publish Build Artifacts'
+    DisplayName: 'Publish Build Artifacts'
